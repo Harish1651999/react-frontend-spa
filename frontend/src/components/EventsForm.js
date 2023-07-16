@@ -1,6 +1,7 @@
 import React from "react";
+import classes from "./EventsForm.module.css";
 
-const EventForm = () => {
+const EventsForm = () => {
   return (
     <form className={classes.form}>
       <p>
@@ -20,13 +21,11 @@ const EventForm = () => {
         <textarea id="description" name="description" rows="5" required />
       </p>
       <div className={classes.actions}>
-        <button type="button" onClick={cancelHandler}>
-          Cancel
-        </button>
+        <button type="button">Cancel</button>
         <button>Save</button>
       </div>
     </form>
   );
 };
 
-export default EventForm;
+export default EventsForm;
