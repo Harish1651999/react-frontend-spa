@@ -1,8 +1,17 @@
 import React from "react";
-import { Form } from "react-router-dom";
+import { Form, useNavigate, useNavigation } from "react-router-dom";
 import classes from "./EventsForm.module.css";
 
 const EventsForm = ({ method, event }) => {
+  const navigate = useNavigate();
+  const navigation = useNavigation();
+
+  const isSubmitting = navigation.state === "submitting";
+
+  const cancelHandler = () => {
+    navigate("..");
+  };
+
   return (
     <Form method="post" className={classes.form}>
       <p>
@@ -46,8 +55,12 @@ const EventsForm = ({ method, event }) => {
         />
       </p>
       <div className={classes.actions}>
-        <button type="button">Cancel</button>
-        <button>Save</button>
+        <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
+          Cancel
+        </button>
+        <button disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Save"}
+        </button>
       </div>
     </Form>
   );
