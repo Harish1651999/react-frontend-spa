@@ -11,4 +11,4 @@ You MUST have both servers (backend + frontend) up and running for the projects 
 
 The dummy backend API does not use any external database - instead the dummy data is saved to an "events.json" file inside the project folder.
 
-##########
+#############
